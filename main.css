@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* CSS Document */
+#header{
+	background:#FFFFFF;
+    height:90px;
+	}
+
+#nav{
+	background-image:url(pics/map.png);
+    height:90px;
+    background-size:auto;
+    background-position:center}
+
+#content {
+	background-color:#FFFFFF;
+	height:400px;}
+	
+#footer{background-color:#FFFFFF;}
+
+.brand{
+	position:absolute;
+	padding-top:10px;
+	left:20px;
+}
+
+.home{
+	position:absolute;
+	top:20px;
+	left:450px;
+}
+
+.flights{
+	position:absolute;
+	top:40px;
+	left:545px;
+}
+
+.booking{
+	position:absolute;
+	top:30px;
+	left:665px;
+}
+
+.about{
+	position:absolute;
+	top:20px;
+	left:785px;
+}
+.contact{
+	position:absolute;
+	top:40px;
+	left:880px;
+}
+
+
+.pldetail{
+	font-family:Baskerville, serif;
+	font-size:24px
+}
+

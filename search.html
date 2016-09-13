@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Travel Agency</title>
+
+<link rel="stylesheet"
+	href="main.css"
+    type="text/css">
+
+</head>
+
+<body onLoad="MM_preloadImages('pics/home_on.png','pics/flights_on.png','pics/book_on.png','pics/contact_on.png')">
+
+<div id="header">
+
+<img id="img1" 
+class="brand"
+src="pics/air.png" 
+width="267" height="54">
+
+<a href="index.php">
+<img id="img2" 
+class="home"
+src="pics/home_off.png" 
+width="110" height="45"
+
+onmouseover=img2.src="pics/home_on.png";
+onmouseout=img2.src="pics/home_off.png"></a>
+
+<a href="search.html">
+<img id="img3"
+class="flights"
+src="pics/flights_off.png" 
+width="110" height="45"
+
+onmouseover=img3.src="pics/flights_on.png";
+onmouseout=img3.src="pics/flights_off.png"></a>
+
+<a href="booking.php">
+<img id="img4"
+class="booking"
+src="pics/book_off.png" 
+width="110" height="45"
+
+onmouseover=img4.src="pics/book_on.png";
+onmouseout=img4.src="pics/book_off.png"></a>
+
+<a href="about.html">
+<img id="img5"
+class="about"
+src="pics/about_off.png" 
+width="110" height="45"
+
+onmouseover=img5.src="pics/about_on.png";
+onmouseout=img5.src="pics/about_off.png"></a>
+
+<a href="contact.php">
+<img id="img6"
+class="contact"
+src="pics/contact_off.png" 
+width="110" height="45"
+
+onmouseover=img6.src="pics/contact_on.png";
+onmouseout=img6.src="pics/contact_off.png"></a>
+
+
+</div>
+
+
+
+<div id="nav">
+
+  <form action="process.php" method="post">
+    <div align="center">
+      <table width="598" height="94" border="0" cellspacing="0">
+        <tbody>
+        <tr>
+          <td width="205"><h2 style="color:#FB4F00"><var><strong>Search Flights</strong></var></h2></td>
+          <td width="37"><strong>From</strong></td>
+          <td width="150">
+            <select name="from_city" style="font-size:20px">   
+               <option selected="selected" />
+              <option />Adelaide
+               <option />Alice Springs
+               <option />Brisbane 
+			   <option />Broken Hill
+               <option />Broome                
+               <option />Bendigo 
+               <option />Canberra
+               <option />Darwin 
+               <option />Hobart 
+			   <option />Kalgoorlie 
+               <option />Launceston 
+               <option />Melbourne 
+               <option />Mt Isa
+ 			   <option />Newcastle
+               <option />Sydney
+               <option />Perth
+               <option />Pt Augusta                
+               <option />Rockhampton      
+             </select>
+			</td>
+
+          <td width="18"><strong>To</strong></td>
+          <td width="150">
+          <select name="to_city" style="font-size:20px">   
+               <option selected="selected" />
+              <option />Adelaide
+               <option />Alice Springs
+               <option />Brisbane 
+			   <option />Broken Hill
+               <option />Broom           
+               <option />Bendigo 
+               <option />Canberra
+               <option />Darwin 
+               <option />Hobart 
+			   <option />Kalgoorlie 
+               <option />Launceston 
+               <option />Melbourne 
+               <option />Mt Isa
+ 			   <option />Newcastle
+               <option />Sydney
+               <option />Perth
+               <option />Pt Augusta 
+               <option />Rockhampton      
+             </select>
+			</td>
+          <td width="61"><input name="Submit" type="submit" style="font-size:16px"></td>
+        </tr>
+      </tbody>
+</table>
+</div></form></div>
+
+<div>
+  <p>&nbsp;</p>
+  <table align="center">
+  <tr>
+<td>
+  <p><a href="http://www.qantas.com/travel/airlines" target="_blank"><img
+src="pics/qantas.png" 
+width="130" height="40"
+class="qantas" id="img7"></a></p>
+</td>
+
+<td>
+<a href="http://www.jetstar.com" target="_blank">
+<img id="img8"
+class="jetstar"
+src="pics/jetstar.png" 
+width="150" height="40"></a>
+</td>
+
+<td>
+<a href="https://tigerair.com.au" target="_blank">
+<img id="img9"
+class="tiger"
+src="pics/tiger.png" 
+width="120" height="30"></a>
+</td>
+
+<td>
+<a href="http://www.virginaustralia.com" target="_blank">
+<img id="img10"
+class="virgin"
+src="pics/virgin.png" 
+width="150" height="40"></a></td>
+
+</table>

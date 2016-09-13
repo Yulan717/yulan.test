@@ -1,0 +1,225 @@
+
+
+<?php
+session_start();
+
+unset($_SESSION['userInfor']); 
+
+?>
+<html>
+<head>
+<title></title>
+	<script type="text/javascript">
+	function validate()
+	{
+		var error = true;
+		document.form1.fname.style.background = "White";
+		document.form1.lname.style.background = "White";						document.form1.address.style.background = "White";
+		document.form1.suburb.style.background = "White";						document.form1.state.style.background = "White";
+		document.form1.country.style.background = "White";						document.form1.pcode.style.background = "White";
+		document.form1.email.style.background = "White";
+
+		if (document.form1.fname.value == "")
+		{
+         		error_type = 1;
+			document.form1.fname.focus();
+			document.form1.fname.style.background = "Red";
+         		error = false;
+		}
+		if (document.form1.lname.value == "")
+		{
+         		error_type = 1;
+			document.form1.lname.focus();
+			document.form1.lname.style.background = "Red";
+         		error = false;
+		}
+		if (document.form1.address.value == "")
+		{
+         		error_type = 1;
+			document.form1.address.focus();
+			document.form1.address.style.background = "Red";
+         		error = false;
+		}
+		if (document.form1.suburb.value == "")
+		{
+         		error_type = 1;
+			document.form1.suburb.focus();
+			document.form1.suburb.style.background = "Red";
+         		error = false;
+		}
+		if (document.form1.state.value == "")
+		{
+         		error_type = 1;
+			document.form1.state.focus();		
+			document.form1.state.style.background = "Red";
+         		error = false;
+		}
+		if (document.form1.country.value == "")
+		{
+         		error_type = 1;
+			document.form1.country.focus();
+			document.form1.country.style.background = "Red";
+         		error = false;
+		}
+		if (document.form1.pcode.value == "")
+		{
+			error_type = 1;
+			document.form1.pcode.focus();
+			document.form1.pcode.style.background = "Red";
+         		error = false;
+		}
+		if (isNaN(document.form1.pcode.value))
+		{
+			error_type = 2;
+			document.form1.pcode.focus();
+			document.form1.pcode.style.background = "Red";
+         		error = false;
+		}
+
+		
+		if (document.form1.email.value == "")
+		{
+         		error_type = 1;
+			document.form1.email.focus();
+			document.form1.email.style.background = "Red";
+         		error = false;
+		}
+		var emailfilter=/^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i
+
+		if ( document.form1.email.value != "" && emailfilter.test(document.form1.email.value) ==false)
+		{
+			error_type = 2;
+			document.form1.email.focus();
+			document.form1.email.style.background = "Red";
+         		error = false;
+		}
+
+/***********************************************
+* Email Validation script-   Dynamic Drive (www.dynamicdrive.com)
+* This notice must stay intact for legal use.
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+
+		if ( error ==false)
+		{
+			switch (error_type)
+			{
+				case 1: alert("The required field has not been filled in");
+				break;
+				case 2: alert("please enter a valid value");
+				break;
+
+			}
+         		return false;
+		}
+		else
+		{
+			return true;
+		}
+		
+	}
+	</script>
+
+</head>
+
+<body>
+   <div>
+   
+   <?php
+   
+    $fname=$_REQUEST["fname"];
+    $lname=$_REQUEST["lname"];
+    $suburb=$_REQUEST["suburb"];
+    $state=$_REQUEST["state"];
+    $country=$_REQUEST["country"];
+    $postcode=$_REQUEST["pcode"];
+    $addline2=$_REQUEST["address"];
+    $email=$_REQUEST["email"];
+    $address=$addline2.", ".$suburb.", ".$state.", ".$country." ,".$postcode;
+    $pname=$fname."  ".$lname    ;
+    $_SESSION['address']=$address;
+    $_SESSION['name']=$pname;
+    $_SESSION['email']=$email;    
+
+    
+  print "<table border=0; style='position:relative; top:230px;left:350px;'>";
+  print"<tr><td >Personal Detail</td>";
+  print"<tr><td >Name:</td>";
+	 print"<td>$pname</td>";
+	print"<tr><td >Address:</td>";
+	 print"<td>$address</td>";
+	 print"<tr><td >Email: </td>";
+	 print"<td >$email</td>\n";
+    
+    
+    
+    ?>
+   </div>
+ <div>
+
+                        <form name="form1" action="comfirm.php" id="commentForm" onsubmit="return check()" method="post" novalidate="novalidate">
+
+                                
+                                  <table class="table-striped table-bordered table-bottom table-center">
+                                        <tbody><tr>
+                                            <th>Credit Card type<span style="color:#F00">* </span></th>
+                                            <td colspan="3"><select name="creditCardType" id="content1">
+                                                <option value="selected=&quot;selected&quot;">- please select -</option>
+                                                <option value="Visa">Visa</option> 
+                                                <option value="Diners">Diners</option>
+                                                <option value="Mastercard">Mastercard</option>
+                                                <option value="Amex">Amex</option>
+                                            </select></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Credit Card Number<span style="color:#F00">* </span></th>
+                                            <td colspan="3"><input type="text" name="creditCardNumber" id="content2" maxlength="12" required="" aria-required="true"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Name on Credit Card<span style="color:#F00">* </span>
+                                            </th>
+                                            <td colspan="3"><input type="text" name="nameOnCreditCard" id="content3" required="" aria-required="true"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                expiry month date<span style="color:#F00">* </span>
+                                            </th>
+                                            <td colspan="3">
+                                                <input type="month" name="expiryMonthDate" min="2016-05" id="content4" required="" aria-required="true">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>
+                                                security code<span style="color:#F00">* </span>
+                                            </th>
+                                            <td colspan="3">
+                                                <input type="password" name="securityCode" id="content5" maxlength="3" required="" aria-required="true">
+                                            </td>
+                                        </tr>
+
+                                </tbody></table>
+
+                                <p>
+                                    <span style="color:#F00">*</span> indicates required fields
+                                </p>
+                                        <button type="button" class="btn btn-default table-center" aria-label="Left Align" id="search_flights" onclick="history.back()">
+                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back
+                                        </button>
+
+                                        <button type="submit" class="btn btn-default table-center"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Stage 3 - Review Bookings and Details</button>
+
+                            </form>
+
+                    </div>
+
+
+
+</body>
+
+
+
+</html>

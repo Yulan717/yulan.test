@@ -1,0 +1,275 @@
+	
+	
+	
+	<?php
+	session_start();
+	
+		session_destroy();
+	
+	?>
+	
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>List selected flights</title>
+    
+    
+<link rel="stylesheet"
+	href="main.css"
+    type="text/css">
+ 
+ <!--<style>
+		
+	table  {
+		background: #ffcccc;
+		color:black;
+		text-align:left;
+		font-size:12px;
+		border-spacing: 4px;
+	}
+	table a, table, tbody, tfoot, tr, th, td {
+		font-family: Verdana, arial, helvetica, sans-serif;
+	}
+	table, {
+		border-left:3px solid #567;
+		border-right:3px solid #000;
+		padding: 3px;
+	}
+	table a {
+		text-decoration: none;
+		background: inherit;
+		color: #ccf;
+		font-weight: bold;
+	}
+	table a:link {
+		text-decoration: none;
+	}
+	table a:visited {
+		background: inherit;
+		color: #66c;
+		text-decoration: line-through;
+	}
+	table a:hover {
+		background: inherit;
+		color: #eef;
+		position: relative;
+		top: 1px;
+		left: 1px;
+		text-decoration: none;
+	}
+	table caption {
+		border-top:1px solid #ddf;
+		border-left:1px solid #ddf;
+		border-right:1px solid #669;
+		border-bottom:1px solid #669;
+		text-align: left;
+		padding: 3px;
+		color: #ccf;
+		background: #99f;
+		font-family: georgia, "times new roman", serif;
+		font-size:20px;
+		font-weight:bold;
+	}
+	table, td, th {
+		margin:0px;
+		padding:3px;
+		border-left:1px solid #ddf;
+		border-right:1px solid #669;
+		border-bottom:1px solid #669;
+	}
+	td, th {
+		border-top:1px solid #ddf;
+		border-left:1px solid #ddf;
+		border-right:1px solid #669;
+		border-bottom:1px solid #669;
+	}
+	tr.odd {
+		color: inherit;
+		background: #88e;
+	}
+	ht:bold;
+			color:#592C16;
+			padding: 16px 9px;
+			
+		}
+	
+	
+	</style>
+ -->
+	
+	</head>
+	
+<body onLoad="MM_preloadImages('pics/home_on.png','pics/flights_on.png','pics/book_on.png','pics/contact_on.png')">
+
+<div id="header">
+
+<img id="img1" 
+class="brand"
+src="pics/air.png" 
+width="267" height="54">
+
+<a href="index.php">
+<img id="img2" 
+class="home"
+src="pics/home_off.png" 
+width="110" height="45"
+
+onmouseover=img2.src="pics/home_on.png";
+onmouseout=img2.src="pics/home_off.png"></a>
+
+<a href="search.html">
+<img id="img3"
+class="flights"
+src="pics/flights_off.png" 
+width="110" height="45"
+
+onmouseover=img3.src="pics/flights_on.png";
+onmouseout=img3.src="pics/flights_off.png"></a>
+
+<a href="booking.php">
+<img id="img4"
+class="booking"
+src="pics/book_off.png" 
+width="110" height="45"
+
+onmouseover=img4.src="pics/book_on.png";
+onmouseout=img4.src="pics/book_off.png"></a>
+
+<a href="about.html">
+<img id="img5"
+class="about"
+src="pics/about_off.png" 
+width="110" height="45"
+
+onmouseover=img5.src="pics/about_on.png";
+onmouseout=img5.src="pics/about_off.png"></a>
+
+<a href="contact.php">
+<img id="img6"
+class="contact"
+src="pics/contact_off.png" 
+width="110" height="45"
+
+onmouseover=img6.src="pics/contact_on.png";
+onmouseout=img6.src="pics/contact_off.png"></a>
+
+
+</div>
+	
+	
+	<div>
+	
+	
+	<?php
+	 /* print "<table >";	
+	  print "\t<tr><td>Seat No.</td>";
+	  print "\t<td>Extra Request</td>";
+	  print "\t<td>Extra Request</td>";
+     print "\t<td>Extra Request</td></tr>";*/
+	
+	$arr1=$_POST['a'];    //用一个数组变量接受复选框中的值。
+	//var_dump($arr1);  
+	$arr2=$_POST['b'];
+	$arr3=$_POST['c'];  
+	$arr4=$_POST['d'];  
+	$arr5=$_POST['e'];  
+	  
+	         $flight=array();
+					  
+				if($arr1[0]=="A") 
+					array_push($flight,$arr1);
+	
+					
+					if($arr2[0]=="B") 
+						array_push($flight,$arr2);
+	
+					if($arr3[0]=="C") 
+						array_push($flight,$arr3);
+					
+					if($arr4[0]=="D") 
+						array_push($flight,$arr4);
+				
+					if($arr5[0]=="E") 
+						array_push($flight,$arr5);
+
+				
+				//var_dump($flight);	
+	     	$_SESSION["flightAll"][]=$flight;
+				
+			$F=array();
+				        // print $_SESSION['cityf'][0];
+				 
+		    $numFlight=count($_SESSION['cityAll']);
+		    if (isset($_SESSION["flightAll"])){
+				for($i=0;$i<count($_SESSION["flightAll"]);$i++) { 
+							     $numa=$i+1;
+							   echo "<p><b>Flight $numa</b></p>";
+						      echo "From \t".$_SESSION['cityf'][$i];
+						      echo " To \t". $_SESSION['cityt'][$i];
+							  echo "<br>";
+						      echo " Total:". $_SESSION['priceAll'][$i];
+                          
+				            $F=$_SESSION["flightAll"][$i];
+							    for ($row = 0; $row < count($F); $row++) {
+							       	$num=$row+1;
+								    	 echo "<p><b>Ticket $num</b></p>";
+								    	 echo "<ul>";
+									    for ($col = 0; $col < 3; $col++) {
+										 echo "<dt>".$F[$row][$col]."</dt>";
+										 
+										}
+								   echo "</ul>";
+											}
+								}
+								}
+								
+							
+									
+							
+	//$num_ticket=count($_SESSION['flight']);
+	//$total=$_SESSION['price']*$num_ticket;
+	
+		print "<br><br>";
+		print "<table >";	
+		print "\t<tr><td>Quantity of ticket(s):\t</td>";
+		print "\t<td>$num_ticket</td>";
+		print "\t<tr><td>Amount:\t$</td>";
+		print "\t<td>$total</td>";
+		print "<br><br>";
+
+		session_destroy();
+		?>
+	
+	
+	
+	<div >
+	<table>
+	<tbody>
+	<tr>
+				<td>
+			     <form method="post" action="search.html" >
+				<input type="submit"  value="Book more Flights"  name="Flights" style="font-size:16px"/>
+				</form>
+				</td>
+				<td >
+				<form method="delete" action="list.php">
+                <input type="reset"  value="Clear all booked flights"  name="Clear" style="font-size:16px"/>   
+                </form>  
+				</td>
+	     
+				<td>
+				<form method="post" action="Personal.php" >
+				<input type="submit"  value="Proceed to Checkout"  name="Checkout" style="font-size:16px"/>
+				</form>      
+				</td>    
+				</tr>
+				</tbody>
+	
+	  
+	</div>
+	
+	
+	
+	
+	</body>
+	</html>
